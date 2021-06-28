@@ -1,0 +1,29 @@
+services:
+  nginx:
+    build: nginx/
+    ports:
+      - 80:80
+
+  omeka-s:
+    build: php-fpm/
+    environment:
+      APPLICATION_ENV: development
+      DATABASE_USER: omeka
+      DATABASE_PASSWORD: omeka
+      DATABASE_NAME: omeka
+      DATABASE_HOST: database
+
+  database:
+    image: mariadb:10.6.2
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: omeka
+      MYSQL_USER: omeka
+      MYSQL_PASSWORD: omeka
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
