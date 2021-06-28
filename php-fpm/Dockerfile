@@ -11,4 +11,9 @@ RUN curl -L https://github.com/omeka/omeka-s/releases/download/v${VERSION}/omeka
 COPY config/ application/config/
 RUN chown -R www-data files/
 
+RUN curl -L https://github.com/Xentropics/ValueSuggest/archive/refs/heads/ndeterms.zip --output ndeterms.zip \
+    && unzip ndeterms.zip \
+    && mv ValueSuggest-ndeterms modules/ValueSuggest \
+    && rm ndeterms.zip
+
 EXPOSE 9000
