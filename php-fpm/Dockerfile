@@ -1,5 +1,6 @@
 # See https://omeka.org/s/docs/user-manual/install/.
-FROM php:7.4.20-fpm-alpine3.14
+# Stick to Alpine 3.13 to prevent https://github.com/alpinelinux/docker-alpine/issues/182.
+FROM php:7.4.20-fpm-alpine3.13
 ARG VERSION=3.0.2
 
 WORKDIR /var/www/html
