@@ -3,6 +3,8 @@ services:
     build: nginx/
     ports:
       - 80:80
+    volumes:
+      - files:/var/www/html/files
 
   omeka-s:
     build: php-fpm/
@@ -12,6 +14,8 @@ services:
       DATABASE_PASSWORD: omeka
       DATABASE_NAME: omeka
       DATABASE_HOST: database
+    volumes:
+      - files:/var/www/html/files
 
   database:
     image: mariadb:10.6.2
@@ -27,3 +31,4 @@ services:
 
 volumes:
   mysql-data:
+  files:
