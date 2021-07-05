@@ -1,7 +1,6 @@
 <?php
 namespace Omeka;
 
-$reader = new \Laminas\Config\Reader\Ini;
 return [
     'modules' => [
         'Laminas\Form',

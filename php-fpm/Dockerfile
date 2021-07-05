@@ -12,8 +12,9 @@ RUN curl -L https://github.com/omeka/omeka-s/releases/download/v${VERSION}/omeka
     && unzip omeka.zip \
     && mv omeka-s/* . \
     && rm -rf omeka.zip omeka-s
-COPY config/ application/config/
-RUN chown -R www-data files/
+COPY config/application.config.php application/config/
+COPY config/local.config.php config/
+RUN chown -R www-data files/ logs/
 
 RUN curl -L https://github.com/Xentropics/ValueSuggest/archive/refs/heads/ndeterms.zip --output ndeterms.zip \
     && unzip ndeterms.zip \
