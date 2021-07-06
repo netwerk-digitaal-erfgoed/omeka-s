@@ -19,6 +19,7 @@ EXPOSE 9000
 FROM nginx:stable-alpine as nginx
 WORKDIR /var/www/html
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=php-fpm /var/www/html/index.php ./
 COPY --from=php-fpm /var/www/html/modules ./modules
 COPY --from=php-fpm /var/www/html/themes ./themes
 EXPOSE 80
