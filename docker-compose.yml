@@ -1,13 +1,17 @@
 services:
   nginx:
-    build: nginx/
+    build:
+      context: .
+      target: nginx
     ports:
       - 80:80
     volumes:
       - files:/var/www/html/files
 
   omeka-s:
-    build: php-fpm/
+    build:
+      context: .
+      target: php-fpm
     environment:
       APPLICATION_ENV: development
       DATABASE_USER: omeka
