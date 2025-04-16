@@ -1,5 +1,5 @@
-FROM php:7.4.20-fpm-alpine3.13 as php-fpm
-ARG VERSION=3.0.2
+FROM php:8.3.20-fpm-alpine AS php-fpm
+ARG VERSION=4.1.1
 WORKDIR /var/www/html
 COPY --from=mlocati/php-extension-installer:1.2.36 /usr/bin/install-php-extensions /usr/local/bin/
 RUN install-php-extensions imagick pdo_mysql
@@ -16,7 +16,7 @@ COPY php-fpm/config/application.config.php application/config/
 COPY php-fpm/config/local.config.php config/
 EXPOSE 9000
 
-FROM nginx:stable-alpine as nginx
+FROM nginx:stable-alpine AS nginx
 WORKDIR /var/www/html
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=php-fpm /var/www/html/index.php ./
