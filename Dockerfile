@@ -1,7 +1,7 @@
 FROM php:8.3.20-fpm-alpine AS php-fpm
 ARG VERSION=4.1.1
 WORKDIR /var/www/html
-COPY --from=mlocati/php-extension-installer:1.2.36 /usr/bin/install-php-extensions /usr/local/bin/
+COPY --from=mlocati/php-extension-installer:2.7.31 /usr/bin/install-php-extensions /usr/local/bin/
 RUN install-php-extensions imagick pdo_mysql
 RUN curl -L https://github.com/omeka/omeka-s/releases/download/v${VERSION}/omeka-s-${VERSION}.zip --output omeka.zip \
     && unzip omeka.zip \
