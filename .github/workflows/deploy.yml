@@ -15,9 +15,9 @@ jobs:
       - name: Set variables
         id: vars
         run: |
-          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-          echo "::set-output name=docker_image_php::ghcr.io/netwerk-digitaal-erfgoed/omeka-s-php"
-          echo "::set-output name=docker_image_nginx::ghcr.io/netwerk-digitaal-erfgoed/omeka-s-nginx"
+          echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "docker_image_php=ghcr.io/netwerk-digitaal-erfgoed/omeka-s-php"
+          echo "docker_image_nginx=ghcr.io/netwerk-digitaal-erfgoed/omeka-s-nginx"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
