@@ -7,10 +7,25 @@ RUN curl -L https://github.com/omeka/omeka-s/releases/download/v${VERSION}/omeka
     && unzip omeka.zip \
     && mv omeka-s/* . \
     && rm -rf omeka.zip omeka-s
-RUN curl -L https://github.com/Xentropics/ValueSuggest/archive/refs/heads/ndeterms.zip --output ndeterms.zip \
-    && unzip ndeterms.zip \
-    && mv ValueSuggest-ndeterms modules/ValueSuggest \
-    && rm ndeterms.zip
+RUN cd modules \
+    && for module in https://github.com/Daniel-KM/Omeka-S-module-EasyAdmin/releases/download/3.4.28/EasyAdmin-3.4.28.zip \
+    https://github.com/omeka-s-modules/NdeTermennetwerk/releases/download/v1.1.0/NdeTermennetwerk-1.1.0.zip \
+    https://github.com/netwerk-digitaal-erfgoed/Omeka-S-Module-LinkedDataSets/releases/download/v0.1/LinkedDataSets-0.1.zip \
+    https://github.com/omeka-s-modules/IiifPresentation/releases/download/v1.0.2/IiifPresentation-1.0.2.zip \
+    https://github.com/omeka-s-modules/CustomVocab/releases/download/v2.0.2/CustomVocab-2.0.2.zip \
+    ; do \
+    curl -L $module --output module.zip \
+      && unzip module.zip \
+      && rm module.zip; \
+done
+RUN cd themes \
+    && for theme in https://github.com/omeka-s-themes/foundation-s/releases/download/v1.5.3/theme-foundation-s-v1.5.3.zip \
+    ; do \
+    curl -L $theme --output theme.zip \
+      && unzip theme.zip \
+      && rm theme.zip; \
+done
+
 RUN chown -R www-data files/ logs/
 COPY php-fpm/config/application.config.php application/config/
 COPY php-fpm/config/local.config.php config/
