@@ -3,7 +3,19 @@
 return [
     'logger' => [
         'log' => true,
+        'writers' => [
+            'stream' => true,
+        ],
         'priority' => \Laminas\Log\Logger::ERR,
+        'options' => [
+            'writers' => [
+                'stream' => [
+                    'options' => [
+                        'stream' => 'php://stdout',
+                    ],
+                ],
+            ],
+        ],
     ],
     'http_client' => [
         'sslcapath' => null,
