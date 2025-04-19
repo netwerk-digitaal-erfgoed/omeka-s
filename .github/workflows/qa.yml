@@ -1,0 +1,28 @@
+name: Update and deploy Docker images
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Nginx image
+        uses: docker/build-push-action@v6
+        with:
+          push: false
+          target: nginx
+
+      - name: Build PHP image
+        uses: docker/build-push-action@v6
+        with:
+          push: false
+          target: php-fpm
