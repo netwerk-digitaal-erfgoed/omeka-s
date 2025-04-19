@@ -8,10 +8,15 @@ RUN curl -L https://github.com/omeka/omeka-s/releases/download/v${VERSION}/omeka
     && mv omeka-s/* . \
     && rm -rf omeka.zip omeka-s
 RUN cd modules \
-    && for module in https://github.com/Daniel-KM/Omeka-S-module-EasyAdmin/releases/download/3.4.28/EasyAdmin-3.4.28.zip \
+    && for module in https://github.com/Daniel-KM/Omeka-S-module-Common/releases/download/3.4.66/Common-3.4.66.zip \
+    https://github.com/Daniel-KM/Omeka-S-module-EasyAdmin/releases/download/3.4.30/EasyAdmin-3.4.30.zip \
     https://github.com/omeka-s-modules/NdeTermennetwerk/releases/download/v1.1.0/NdeTermennetwerk-1.1.0.zip \
-    https://github.com/netwerk-digitaal-erfgoed/Omeka-S-Module-LinkedDataSets/releases/download/v0.1/LinkedDataSets-0.1.zip \
-    https://github.com/omeka-s-modules/IiifPresentation/releases/download/v1.0.2/IiifPresentation-1.0.2.zip \
+    https://github.com/netwerk-digitaal-erfgoed/Omeka-S-Module-LinkedDataSets/releases/download/v0.2/LinkedDataSets.zip \
+    https://github.com/Daniel-KM/Omeka-S-module-ImageServer/releases/download/3.6.19/ImageServer-3.6.19.zip \
+    https://github.com/Daniel-KM/Omeka-S-module-IiifServer/releases/download/3.6.24/IiifServer-3.6.24.zip \
+    https://github.com/omeka-s-modules/UriDereferencer/releases/download/v1.4.2/UriDereferencer-1.4.2.zip \
+    https://github.com/Daniel-KM/Omeka-S-module-Log/releases/download/3.4.27/Log-3.4.27-php-8.2.zip \
+    https://github.com/omeka-s-modules/NumericDataTypes/releases/download/v1.12.0/NumericDataTypes-1.12.0.zip \
     https://github.com/omeka-s-modules/CustomVocab/releases/download/v2.0.2/CustomVocab-2.0.2.zip \
     ; do \
     curl -L $module --output module.zip \
