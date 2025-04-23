@@ -20,6 +20,7 @@ RUN cd modules \
     https://github.com/Daniel-KM/Omeka-S-module-Log/releases/download/3.4.27/Log-3.4.27-php-8.2.zip \
     https://github.com/omeka-s-modules/NumericDataTypes/releases/download/v1.12.0/NumericDataTypes-1.12.0.zip \
     https://github.com/omeka-s-modules/CustomVocab/releases/download/v2.0.2/CustomVocab-2.0.2.zip \
+    https://github.com/Daniel-KM/Omeka-S-module-UniversalViewer/releases/download/3.6.9/UniversalViewer-3.6.9.zip \
     ; do \
     curl -L $module --output module.zip \
       && unzip module.zip \
