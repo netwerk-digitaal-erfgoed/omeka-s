@@ -12,6 +12,7 @@ RUN curl -L https://github.com/omeka/omeka-s/releases/download/v${VERSION}/omeka
 RUN cd modules \
     && for module in https://github.com/Daniel-KM/Omeka-S-module-Common/releases/download/3.4.66/Common-3.4.66.zip \
     https://github.com/Daniel-KM/Omeka-S-module-EasyAdmin/releases/download/3.4.30/EasyAdmin-3.4.30.zip \
+    https://github.com/omeka-s-modules/ValueSuggest/releases/download/v1.17.2/ValueSuggest-1.17.2.zip \
     https://github.com/omeka-s-modules/NdeTermennetwerk/releases/download/v1.1.0/NdeTermennetwerk-1.1.0.zip \
     https://github.com/netwerk-digitaal-erfgoed/Omeka-S-Module-LinkedDataSets/releases/download/v0.2/LinkedDataSets.zip \
     https://github.com/Daniel-KM/Omeka-S-module-ImageServer/releases/download/3.6.19/ImageServer-3.6.19.zip \
@@ -21,6 +22,7 @@ RUN cd modules \
     https://github.com/omeka-s-modules/NumericDataTypes/releases/download/v1.12.0/NumericDataTypes-1.12.0.zip \
     https://github.com/omeka-s-modules/CustomVocab/releases/download/v2.0.2/CustomVocab-2.0.2.zip \
     https://github.com/Daniel-KM/Omeka-S-module-UniversalViewer/releases/download/3.6.9/UniversalViewer-3.6.9.zip \
+    https://github.com/Daniel-KM/Omeka-s-module-AdvancedResourceTemplate/releases/download/3.4.39/AdvancedResourceTemplate-3.4.39.zip \
     ; do \
     curl -L $module --output module.zip \
       && unzip module.zip \
