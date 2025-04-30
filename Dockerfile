@@ -13,7 +13,7 @@ RUN cd modules \
     && for module in https://github.com/Daniel-KM/Omeka-S-module-Common/releases/download/3.4.66/Common-3.4.66.zip \
     https://github.com/Daniel-KM/Omeka-S-module-EasyAdmin/releases/download/3.4.30/EasyAdmin-3.4.30.zip \
     https://github.com/omeka-s-modules/ValueSuggest/releases/download/v1.17.2/ValueSuggest-1.17.2.zip \
-    https://github.com/omeka-s-modules/NdeTermennetwerk/releases/download/v1.1.0/NdeTermennetwerk-1.1.0.zip \
+    https://github.com/omeka-s-modules/NdeTermennetwerk/releases/download/v1.2.0/NdeTermennetwerk-1.2.0.zip \
     https://github.com/netwerk-digitaal-erfgoed/Omeka-S-Module-LinkedDataSets/releases/download/v0.2/LinkedDataSets.zip \
     https://github.com/Daniel-KM/Omeka-S-module-ImageServer/releases/download/3.6.19/ImageServer-3.6.19.zip \
     https://github.com/Daniel-KM/Omeka-S-module-IiifServer/releases/download/3.6.24/IiifServer-3.6.24.zip \
