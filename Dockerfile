@@ -1,7 +1,7 @@
 FROM php:8.3.20-fpm-alpine AS php-fpm
 ARG VERSION=4.1.1
 WORKDIR /var/www/html
-RUN apk add --no-cache vips
+RUN apk add --no-cache vips-tools
 COPY php-fpm/php.ini /usr/local/etc/php/conf.d/php-overrides.ini
 COPY --from=mlocati/php-extension-installer:2.7.31 /usr/bin/install-php-extensions /usr/local/bin/
 RUN install-php-extensions imagick pdo_mysql
