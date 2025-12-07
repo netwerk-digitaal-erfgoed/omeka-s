@@ -1,5 +1,5 @@
 FROM php:8.3.20-fpm-alpine AS php-fpm
-ARG VERSION=4.1.1
+ARG VERSION=4.2.0
 WORKDIR /var/www/html
 RUN apk add --no-cache vips-tools
 COPY php-fpm/php.ini /usr/local/etc/php/conf.d/php-overrides.ini
@@ -10,19 +10,19 @@ RUN curl -L https://github.com/omeka/omeka-s/releases/download/v${VERSION}/omeka
     && mv omeka-s/* . \
     && rm -rf omeka.zip omeka-s
 RUN cd modules \
-    && for module in https://github.com/Daniel-KM/Omeka-S-module-Common/releases/download/3.4.66/Common-3.4.66.zip \
-    https://github.com/Daniel-KM/Omeka-S-module-EasyAdmin/releases/download/3.4.30/EasyAdmin-3.4.30.zip \
-    https://github.com/omeka-s-modules/ValueSuggest/releases/download/v1.17.2/ValueSuggest-1.17.2.zip \
-    https://github.com/omeka-s-modules/NdeTermennetwerk/releases/download/v1.2.0/NdeTermennetwerk-1.2.0.zip \
+    && for module in https://github.com/Daniel-KM/Omeka-S-module-Common/releases/download/3.4.73/Common-3.4.73.zip \
+    https://github.com/Daniel-KM/Omeka-S-module-EasyAdmin/releases/download/3.4.36/EasyAdmin-3.4.36.zip \
+    https://github.com/omeka-s-modules/ValueSuggest/releases/download/v1.18.0/ValueSuggest-1.18.0.zip \
+    https://github.com/omeka-s-modules/NdeTermennetwerk/releases/download/v1.4.0/NdeTermennetwerk-1.4.0.zip \
     https://github.com/netwerk-digitaal-erfgoed/Omeka-S-Module-LinkedDataSets/releases/download/v0.2/LinkedDataSets.zip \
-    https://github.com/Daniel-KM/Omeka-S-module-ImageServer/releases/download/3.6.19/ImageServer-3.6.19.zip \
-    https://github.com/Daniel-KM/Omeka-S-module-IiifServer/releases/download/3.6.24/IiifServer-3.6.24.zip \
-    https://github.com/omeka-s-modules/UriDereferencer/releases/download/v1.4.2/UriDereferencer-1.4.2.zip \
-    https://github.com/Daniel-KM/Omeka-S-module-Log/releases/download/3.4.27/Log-3.4.27-php-8.2.zip \
-    https://github.com/omeka-s-modules/NumericDataTypes/releases/download/v1.12.0/NumericDataTypes-1.12.0.zip \
+    https://github.com/Daniel-KM/Omeka-S-module-ImageServer/releases/download/3.6.20/ImageServer-3.6.20.zip \
+    https://github.com/Daniel-KM/Omeka-S-module-IiifServer/releases/download/3.6.26/IiifServer-3.6.26.zip \
+    https://github.com/omeka-s-modules/UriDereferencer/releases/download/v1.4.3/UriDereferencer-1.4.3.zip \
+    https://github.com/Daniel-KM/Omeka-S-module-Log/releases/download/3.4.32/Log-3.4.32-php-8.2.zip \
+    https://github.com/omeka-s-modules/NumericDataTypes/releases/download/v1.13.0/NumericDataTypes-1.13.0.zip \
     https://github.com/omeka-s-modules/CustomVocab/releases/download/v2.0.2/CustomVocab-2.0.2.zip \
-    https://github.com/Daniel-KM/Omeka-S-module-UniversalViewer/releases/download/3.6.9/UniversalViewer-3.6.9.zip \
-    https://github.com/Daniel-KM/Omeka-s-module-AdvancedResourceTemplate/releases/download/3.4.39/AdvancedResourceTemplate-3.4.39.zip \
+    https://github.com/Daniel-KM/Omeka-S-module-UniversalViewer/releases/download/3.6.11/UniversalViewer-3.6.11.zip \
+    https://github.com/Daniel-KM/Omeka-s-module-AdvancedResourceTemplate/releases/download/3.4.48/AdvancedResourceTemplate-3.4.48.zip \
     ; do \
     curl -L $module --output module.zip \
       && unzip module.zip \
@@ -30,6 +30,7 @@ RUN cd modules \
 done
 RUN cd themes \
     && for theme in https://github.com/omeka-s-themes/foundation-s/releases/download/v1.5.3/theme-foundation-s-v1.5.3.zip \
+    https://github.com/nakamura196/Omeka-S-theme-Bootstrap5/archive/refs/heads/main.zip \
     ; do \
     curl -L $theme --output theme.zip \
       && unzip theme.zip \
