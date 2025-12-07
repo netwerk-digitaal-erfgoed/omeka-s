@@ -7,14 +7,14 @@ on:
 
 jobs:
   build-nginx:
-    uses: netwerk-digitaal-erfgoed/workflows/.github/workflows/deploy.yml@c030912d5f7a7bc7334379e186f9affea1d5d7c7
+    uses: netwerk-digitaal-erfgoed/workflows/.github/workflows/deploy.yml@main
     with:
       target: nginx
     secrets:
       CONTAINER_REGISTRY_TOKEN: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
 
   build-php-fpm:
-    uses: netwerk-digitaal-erfgoed/workflows/.github/workflows/deploy.yml@c030912d5f7a7bc7334379e186f9affea1d5d7c7
+    uses: netwerk-digitaal-erfgoed/workflows/.github/workflows/deploy.yml@main
     with:
       target: php-fpm
     secrets:
