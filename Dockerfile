@@ -30,7 +30,6 @@ RUN cd modules \
 done
 RUN cd themes \
     && for theme in https://github.com/omeka-s-themes/foundation-s/releases/download/v1.5.3/theme-foundation-s-v1.5.3.zip \
-    https://github.com/nakamura196/Omeka-S-theme-Bootstrap5/archive/refs/heads/main.zip \
     ; do \
     curl -L $theme --output theme.zip \
       && unzip theme.zip \
