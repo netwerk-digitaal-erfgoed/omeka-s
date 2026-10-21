@@ -4,7 +4,8 @@ WORKDIR /var/www/html
 RUN apk add --no-cache vips-tools
 COPY php-fpm/php.ini /usr/local/etc/php/conf.d/php-overrides.ini
 COPY --from=mlocati/php-extension-installer:2.12.3 /usr/bin/install-php-extensions /usr/local/bin/
-RUN install-php-extensions imagick pdo_mysql
+# imagick from its GitHub source (tag 3.8.1): pecl.php.net is unreliable.
+RUN install-php-extensions Imagick/imagick@70087bab33eab913e99ac77d64d04d1a2fd0b7b0 pdo_mysql
 RUN curl -L https://github.com/omeka/omeka-s/releases/download/v${VERSION}/omeka-s-${VERSION}.zip --output omeka.zip \
     && unzip omeka.zip \
     && mv omeka-s/* . \
