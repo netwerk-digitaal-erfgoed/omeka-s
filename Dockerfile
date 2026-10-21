@@ -1,4 +1,4 @@
-FROM amd64/php:8.3.36-fpm-alpine AS php-fpm
+FROM php:8.3.36-fpm-alpine AS php-fpm
 ARG VERSION=4.2.0
 WORKDIR /var/www/html
 RUN apk add --no-cache vips-tools
