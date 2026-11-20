@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+
+  - package-ecosystem: 'docker'
+    directory: '/'
+    # Daily, so security releases of the base images land (and auto-merge) fast.
+    schedule:
+      interval: 'daily'
+    ignore:
+      # Patch releases only. A minor bump would move nginx from its stable branch
+      # (even minor, e.g. 1.30) to mainline (odd minor, e.g. 1.31), and PHP to a
+      # new minor Omeka S may not support yet. Move between those by hand.
+      - dependency-name: '*'
+        update-types:
+          - 'version-update:semver-major'
+          - 'version-update:semver-minor'
