@@ -42,7 +42,7 @@ COPY php-fpm/config/application.config.php application/config/
 COPY php-fpm/config/local.config.php config/
 EXPOSE 9000
 
-FROM nginx:stable-alpine AS nginx
+FROM nginx:1.30.7-alpine AS nginx
 WORKDIR /var/www/html
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=php-fpm /var/www/html/index.php ./
